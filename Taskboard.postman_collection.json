@@ -1,0 +1,116 @@
+{
+  "info": {
+    "name": "Taskboard API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000"
+    }
+  ],
+  "item": [
+    {
+      "name": "List tasks (GET)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/tasks/"
+        }
+      }
+    },
+    {
+      "name": "Create task (POST)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/tasks/"
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Write report\",\n  \"description\": \"Quarterly summary\",\n  \"priority\": \"high\",\n  \"due_date\": \"2026-10-20\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Get one task (GET)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/tasks/1/"
+        }
+      }
+    },
+    {
+      "name": "Update task (PUT)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/tasks/1/"
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Write final report\",\n  \"description\": \"Updated\",\n  \"priority\": \"medium\",\n  \"completed\": false,\n  \"due_date\": \"2026-10-25\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Mark complete (PATCH)",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/tasks/1/"
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"completed\": true\n}"
+        }
+      }
+    },
+    {
+      "name": "Delete task (DELETE)",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/tasks/1/"
+        }
+      }
+    }
+  ]
+}
